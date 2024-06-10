@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import "./App.css";
+import Layout from "./components/layout";
+import Card from "./components/card";
+
+const App = () => {
+  const services = [
+    {
+      title: "Presentation Design",
+      description: "Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.",
+    },
+    {
+      title: "Audio - Visual Production",
+      description: "Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.",
+    },
+    {
+      title: "Translation Services",
+      description: "Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.",
+    },
+    {
+      title: "Graphic Design",
+      description: "Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.",
+    },
+    {
+      title: "Research & Analytics",
+      description: "Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.",
+    },
+    {
+      title: "Data Processing",
+      description: "Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.",
+    },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="app-des">
+        <Layout />
+
+        <div className="app-services">
+          {services.map((service, index) => (
+            <Card
+              key={index}
+              icon={service.icon}
+              title={service.title}
+              description={service.description}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
